@@ -1,0 +1,17 @@
+The following CSS code snippet demonstrates an issue where the intended specificity of selectors doesn't work as expected due to an uncommon error involving the use of the `!important` flag within nested selectors:
+
+```css
+.container {
+  color: blue;
+}
+
+.container .inner {
+  color: red !important; 
+}
+
+.container .inner .nested {
+  color: green;
+}
+```
+
+In this case, one might expect the `.container .inner .nested` element to inherit the `color: red` from its parent with `!important` and then be overridden by the `color: green` declaration. However, the `!important` declaration only applies to the direct selector `.container .inner`, thus the nested element inherits the `color: blue` from the `.container` selector, rather than the red.   The `!important` flag does not cascade down through nested elements.
