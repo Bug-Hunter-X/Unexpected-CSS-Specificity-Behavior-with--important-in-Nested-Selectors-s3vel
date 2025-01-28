@@ -1,0 +1,17 @@
+The solution avoids using `!important` altogether and uses more explicit selectors for styling:
+
+```css
+.container {
+  color: blue;
+}
+
+.container .inner {
+  color: red; 
+}
+
+.container .inner .nested {
+  color: green;
+}
+```
+
+This revised approach ensures that the `color: green` for the `.nested` element takes precedence according to standard CSS specificity rules without relying on `!important`.
